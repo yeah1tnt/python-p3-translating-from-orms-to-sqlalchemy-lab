@@ -1,8 +1,7 @@
 from models import Dog
 
 def create_table(base, engine):
-    if not base.metadata.tables:
-        base.metadata.create_all(engine)
+    base.metadata.create_all(engine)
 
 def save(session, dog):
     if not session.query(Dog).filter_by(name=dog.name).first():
